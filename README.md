@@ -107,7 +107,7 @@ graph TD
 ```
 ### 5. Программа
 
-'''Java
+'''java
 import java.util.*;
 
 public class Main {

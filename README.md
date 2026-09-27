@@ -107,13 +107,15 @@ graph TD
 ```
 ### 5. Программа
 
-'''java
+
+```java
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+    
       Scanner scanner = new Scanner(System.in);
-
+      
         // Считываем длины трёх отрезков
         System.out.print("Введите A: ");
         int a = scanner.nextInt();
@@ -158,4 +160,4 @@ public class Main {
         scanner.close();
     }
 }
-'''
+```

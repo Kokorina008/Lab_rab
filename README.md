@@ -23,7 +23,7 @@
 
 - Для 1 подзадачи есть 2 случая:
   1. A<B+C и B<A+C и C<A+B (треугольник существует)
-  2. A<B+C или B<A+C или C<A+B (треугольник не существует)
+  2. A>=B+C или B>=A+C или C>=A+B (треугольник не существует)
   при 2 случае 2 подзадача не выполняется.
 - Для 2 подзадачи есть 5 случаев:
   1.  A=B и B=C (равносторонний)
@@ -105,3 +105,57 @@ graph TD
     N --> Z([Конец])
     O --> Z([Конец])
 ```
+### 5. Программа
+
+'''Java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner scanner = new Scanner(System.in);
+
+        // Считываем длины трёх отрезков
+        System.out.print("Введите A: ");
+        int a = scanner.nextInt();
+        System.out.print("Введите B: ");
+        int b = scanner.nextInt();
+        System.out.print("Введите C: ");
+        int c = scanner.nextInt();
+
+        //Проверка существования треугольника
+        if (a>=b+c || b>=a+c || c>=a+b) {
+          System.out.println("Треугольник невозможно построить");
+        } else {
+          System.out.println("Треугольник возможно построить");
+
+          //Вычислить квадраты сторон
+          long a2=(long) a*a;
+          long b2=(long) b*b;
+          long c2=(long) c*c;
+
+          //Определить вид треугольника
+          if (a==b && b==c) {
+            //Все три стороны равны
+            System.out.println("Треугольник равносторонний");
+          } else if (a==b || b==c || a==c) {
+            //Две стороны равны
+            if (a2==b2+c2 || b2==a2+c2 || c2==a2+b2) {
+              //Удовлетворяет теореме Пифагора
+              System.out.println("Треугольник равнобедренный-прямоугольный");
+            } else {
+              //Не удовлетворяет
+              System.out.println("Треугольник равнобедренный");
+            }
+          } else if (a2==b2+c2 || b2==a2+c2 || c2==a2+b2) {
+            //Две стороны не равны, но удовлетворяет теореме Пифагора
+            System.out.println("Треугольник прямоугольный");
+          } else {
+            //Все стороны различны
+            System.out.println("Треугольник разносторонний");
+          }
+
+        } 
+        scanner.close();
+    }
+}
+'''

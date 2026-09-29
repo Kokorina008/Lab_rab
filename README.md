@@ -130,7 +130,7 @@ public class Main {
         } else {
           System.out.println("Треугольник возможно построить");
 
-          //Вычислить квадраты сторон
+          //Вычислить квадраты сторон. Формат long, потому что квадрат может превысить int
           long a2=(long) a*a;
           long b2=(long) b*b;
           long c2=(long) c*c;
